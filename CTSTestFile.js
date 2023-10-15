@@ -1,18 +1,18 @@
 
 function getKeyValue(object) {
     // Code here
-     let arr = []
-
+    let arr = []
     const keys =  Object.keys(object)
     keys.forEach(element => {
         const arr1 = []
         const value = object[element]
+        console.log(element)
         if (typeof(value) !== 'object'){
             arr1.push(element)
             arr1.push(object[element])
             arr.push(arr1)
         } else {
-            arr1.push(...getKeyValue(element))
+            arr.push(...getKeyValue(value))
         }
     });
 
